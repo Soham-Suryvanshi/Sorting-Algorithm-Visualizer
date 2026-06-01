@@ -28,4 +28,8 @@
 .bar{
     width: 25px;
     background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
 }
