@@ -1,0 +1,31 @@
+*{
+        background-color:rgb(245, 239, 239);
+        
+    }
+    #generate-button{
+        padding:15px 30px;
+        font-size:24px;
+        background-color:blue;
+        color:white;
+        border:none;
+        border-radius:7.5px;
+        cursor:grabbing;
+
+    }
+    .container{
+        display : flex;
+        justify-content:center;
+        margin-top:250px;
+    }
+   .bars{
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    justify-content: center;
+   }
+
+.bar{
+    width: 25px;
+    background-color: red;
+}
