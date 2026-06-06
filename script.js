@@ -1,4 +1,7 @@
+const barsContainer = document.querySelector(".bars");
+
 let arr=[];
+let isSorting=false;
 
 
 function generateBars(){
@@ -10,7 +13,7 @@ function generateBars(){
 
 }
 function renderBars(){
-    const barsContainer = document.querySelector(".bars");
+    
     barsContainer.innerHTML="";
 
     for(let i=0;i<arr.length;i++){
@@ -23,26 +26,48 @@ function renderBars(){
         
     }
 }
-function swapt(){
-[arr[0],arr[1]]=[arr[1],arr[0]];
-renderBars();
-}
+const swap=(arr,a,b)=>{
+[arr[a],arr[b]]=[arr[b],arr[a]];
+return arr;
+};
 function sleep(ms){
     return new Promise(resolve=> setTimeout(resolve,ms));
 }
 
+async function animate(){
+    renderBars();
+    await sleep(150);
+}
+
 
 async function bubbleSort() {
+    if(isSorting)return;
+
+    isSorting=true;
     for(let i=0;i<arr.length-1;i++) {
         for(let j=0;j<arr.length-i-1;j++) {
 
             if(arr[j] > arr[j+1]) {
-                [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
-                renderBars();
-                await sleep(150);
+                swap(arr,j,j+1);
+                await animate();
             }
         }
     }
+    isSorting=false;
+}
+
+async function insertionSort() {
+    if(isSorting)return 
+    isSorting=true;
+    for(let i=1;i<arr.length;i++) {
+        j=i;
+        while(j-1>=0 && arr[j-1]>arr[j]){
+            swap(arr,j,j-1);
+            await animate();
+            j-=1;
+        }
+    }
+    isSorting=false;
 }
     
 
@@ -53,3 +78,6 @@ async function bubbleSort() {
     
     const bubsort=document.querySelector("#bubble-sort");
         bubsort.addEventListener("click",bubbleSort);
+
+    const insort=document.querySelector("#insertion-sort");
+        insort.addEventListener("click",insertionSort);
