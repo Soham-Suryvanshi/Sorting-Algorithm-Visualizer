@@ -3,34 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sorting Algorithm Visualizer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Sorting Algorithm Visualizer</h1>
         
-
-        
-        <div class="container">
-            <button class="button" id="generate-button">
-                Generate
-            </button>
-           
-            <button class="button" id="bubble-sort">
-                bubble-sort
-            </button>
-
-            <button class="button" id="insertion-sort">
-                insertion-sort
-            </button>
+    <div class="container">
+        <div class="selector-container">
+            <select id="AlgoSelect">
+                <option value="">Select algorithm</option>
+                <option value="bubble">Bubble Sort</option>
+                <option value="insertion">Insertion Sort</option>
+                <option value="merge">Merge Sort</option>
+            </select>
         </div>
         
-        
+        <button id="generateBtn" class="button" disabled>
+            Generate & Sort
+        </button>
+    </div>
 
-        <div class="bars">
-            
-        </div>
-        
-        <script src="script.js"></script>
+    <div class="bars"></div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
